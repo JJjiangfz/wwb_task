@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.env
+outputs/
+
+# Local model weights
+models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Local third-party checkout
+third_party/nanobot/

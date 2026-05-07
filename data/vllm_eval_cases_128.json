@@ -1,0 +1,642 @@
+[
+    {
+        "instruction": "Use the weather skill to report the current weather in Tokyo in one concise sentence.",
+        "skill": "weather",
+        "explain": "Single-city weather lookup."
+    },
+    {
+        "instruction": "Use the weather skill to compare the current weather in Beijing and Shanghai. Mention both cities and keep the answer under 80 words.",
+        "skill": "weather",
+        "explain": "Multi-location weather comparison."
+    },
+    {
+        "instruction": "Use the weather skill to report the current weather in New York and state which weather source or tool was used.",
+        "skill": "weather",
+        "explain": "Weather lookup plus tool-use disclosure."
+    },
+    {
+        "instruction": "Use the weather skill to compare London and Paris current weather, then say which city is warmer.",
+        "skill": "weather",
+        "explain": "Weather comparison with a derived conclusion."
+    },
+    {
+        "instruction": "Use the weather skill to get Singapore current weather and summarize temperature, wind, and condition if available.",
+        "skill": "weather",
+        "explain": "Weather result extraction with multiple fields."
+    },
+    {
+        "instruction": "Use the weather skill to check whether San Francisco currently looks suitable for an outdoor walk. Give a brief recommendation.",
+        "skill": "weather",
+        "explain": "Weather lookup plus practical judgment."
+    },
+    {
+        "instruction": "Use the weather skill to report current weather in Sydney and include the local city name in the answer.",
+        "skill": "weather",
+        "explain": "Weather lookup for a southern hemisphere city."
+    },
+    {
+        "instruction": "Use the weather skill to compare current weather in Berlin, Madrid, and Rome. Rank them from coolest to warmest if temperatures are available.",
+        "skill": "weather",
+        "explain": "Three-location weather ranking."
+    },
+    {
+        "instruction": "Use the weather skill to get current weather in Dubai and explain whether heat is likely the main comfort issue.",
+        "skill": "weather",
+        "explain": "Weather lookup with comfort interpretation."
+    },
+    {
+        "instruction": "Use the weather skill to report current weather in Toronto and include one sentence about what clothing might be appropriate.",
+        "skill": "weather",
+        "explain": "Weather lookup with recommendation."
+    },
+    {
+        "instruction": "Search the web for the current homepage title of python.org, fetch the page if needed, and answer with the title plus the source URL.",
+        "skill": "web",
+        "explain": "Basic web_search and web_fetch with source URL."
+    },
+    {
+        "instruction": "Search official OpenAI pages for the current main product or homepage message. Use only official OpenAI sources and include the URL.",
+        "skill": "web",
+        "explain": "Constrained web search with source attribution."
+    },
+    {
+        "instruction": "Search the web for the latest Python stable release according to python.org. Answer with the version and source URL.",
+        "skill": "web",
+        "explain": "Fresh web lookup against an official source."
+    },
+    {
+        "instruction": "Search the web for the current GitHub homepage title or main heading and provide a one-line answer with the source URL.",
+        "skill": "web",
+        "explain": "Web fetch and concise extraction."
+    },
+    {
+        "instruction": "Search the web for the official NanoBot repository or documentation page. Return the best URL and explain why it is relevant.",
+        "skill": "web",
+        "explain": "Search relevance and source selection."
+    },
+    {
+        "instruction": "Search the web for the current vLLM documentation homepage. Provide the title and source URL.",
+        "skill": "web",
+        "explain": "Technical documentation lookup."
+    },
+    {
+        "instruction": "Search the web for Hugging Face model page Qwen/Qwen3-8B and return the page URL plus one sentence about what it is.",
+        "skill": "web",
+        "explain": "Model card lookup and summarization."
+    },
+    {
+        "instruction": "Search the web for official pytest documentation and answer with the page title and URL.",
+        "skill": "web",
+        "explain": "Official documentation retrieval."
+    },
+    {
+        "instruction": "Search for the official JSON specification or json.org page and summarize what JSON is in one sentence with the URL.",
+        "skill": "web",
+        "explain": "Web lookup plus concise explanation."
+    },
+    {
+        "instruction": "Search the web for the official Model Context Protocol website. Provide the URL and a two-sentence summary.",
+        "skill": "web",
+        "explain": "Emerging technical concept lookup."
+    },
+    {
+        "instruction": "Create notes/cities.md with a markdown table for Tokyo, Beijing, and New York. Then read it back and summarize the rows.",
+        "skill": "filesystem",
+        "explain": "Nested file creation and readback."
+    },
+    {
+        "instruction": "Create data/a.txt containing alpha beta gamma and data/b.txt containing beta delta. Then search for beta and report matching files.",
+        "skill": "filesystem",
+        "explain": "Multiple file writes plus search."
+    },
+    {
+        "instruction": "Create artifacts/profile.json with project=nanobot-eval, status=ready, cases=3. Read it back and confirm it is valid JSON.",
+        "skill": "filesystem",
+        "explain": "Structured JSON file write and validation."
+    },
+    {
+        "instruction": "Create report.md listing three risks in agent trajectory evaluation. Then answer with the file path and a one-sentence summary.",
+        "skill": "filesystem",
+        "explain": "Markdown report generation."
+    },
+    {
+        "instruction": "Create logs/run.log with three timestamp-like lines of your choice. Then read only the first two lines and report them.",
+        "skill": "filesystem",
+        "explain": "File write and partial read behavior."
+    },
+    {
+        "instruction": "Create config/settings.json containing a nested object with evaluation.max_turns=20 and evaluation.concurrency=4. Read it back and summarize the settings.",
+        "skill": "filesystem",
+        "explain": "Nested JSON object generation."
+    },
+    {
+        "instruction": "Create docs/checklist.md with five checklist items for running an agent evaluation. Then verify the file exists.",
+        "skill": "filesystem",
+        "explain": "Markdown checklist creation and existence check."
+    },
+    {
+        "instruction": "Create tmp/delete_me.txt with any short text, then do not delete it. Report the exact path and content.",
+        "skill": "filesystem",
+        "explain": "Simple write and readback without destructive cleanup."
+    },
+    {
+        "instruction": "Create a file named unicode_test.txt containing only ASCII text that says encoding check passed. Then read it back.",
+        "skill": "filesystem",
+        "explain": "Basic encoding-safe file operation."
+    },
+    {
+        "instruction": "Create a directory-style path results/round1/summary.txt with a one-paragraph evaluation summary. Then read it back.",
+        "skill": "filesystem",
+        "explain": "Deep nested path creation."
+    },
+    {
+        "instruction": "Create metrics.txt with three lines: latency=10, accuracy=0.8, cost=low. Read it and convert the information into a markdown table in your final answer.",
+        "skill": "filesystem",
+        "explain": "Text parsing from workspace file."
+    },
+    {
+        "instruction": "Check whether a file named missing_file.md exists in the workspace. If it does not exist, say so clearly and do not create it.",
+        "skill": "filesystem",
+        "explain": "Read-only negative existence check."
+    },
+    {
+        "instruction": "Write a short file named plan.txt with three numbered steps for evaluating an agent. Then append no extra files and summarize the plan.",
+        "skill": "filesystem",
+        "explain": "Controlled file write."
+    },
+    {
+        "instruction": "Create table.md with a markdown table of model, provider, and mode for Qwen3-8B, OpenRouter, and vLLM. Then read it back.",
+        "skill": "filesystem",
+        "explain": "Markdown table generation and verification."
+    },
+    {
+        "instruction": "Create src/example.py with a simple add(a, b) function. Then search the workspace for the function name add.",
+        "skill": "search",
+        "explain": "Code file creation plus grep-like search."
+    },
+    {
+        "instruction": "Create three files under corpus/ where two contain the word trajectory. Search for trajectory and list matching paths.",
+        "skill": "search",
+        "explain": "Keyword search across multiple files."
+    },
+    {
+        "instruction": "Create notes/alpha.md and notes/beta.md, then list the notes directory and report the filenames.",
+        "skill": "search",
+        "explain": "Directory listing behavior."
+    },
+    {
+        "instruction": "Create a Python file containing TODO comments in two places. Search for TODO and report count and file path.",
+        "skill": "search",
+        "explain": "Pattern counting in generated code."
+    },
+    {
+        "instruction": "Create nested files under project/a, project/b, and project/c. Use available search or listing tools to show the resulting tree.",
+        "skill": "search",
+        "explain": "Glob/list style workspace discovery."
+    },
+    {
+        "instruction": "Create README_eval.md with the phrase agent evaluation pipeline twice. Search for that phrase and report whether it appears twice.",
+        "skill": "search",
+        "explain": "Exact phrase search."
+    },
+    {
+        "instruction": "Create config/dev.yaml and config/prod.yaml with short placeholder content. Find all yaml files in the workspace.",
+        "skill": "search",
+        "explain": "File extension discovery."
+    },
+    {
+        "instruction": "Create docs/api.md containing the words request and response. Search for response and include the matching line.",
+        "skill": "search",
+        "explain": "Line-level search result extraction."
+    },
+    {
+        "instruction": "Use Python through exec to compute the SHA256 hash of the exact string nanobot-eval-pipeline. Return the hash and mention exec.",
+        "skill": "exec",
+        "explain": "Deterministic Python execution."
+    },
+    {
+        "instruction": "Use exec to print the current working directory, then explain whether it is inside the isolated testcase workspace.",
+        "skill": "exec",
+        "explain": "Command execution and workspace inspection."
+    },
+    {
+        "instruction": "Use exec to compute 17 * 23 + 19. Return only the arithmetic result and mention the command was deterministic.",
+        "skill": "exec",
+        "explain": "Simple deterministic command."
+    },
+    {
+        "instruction": "Use exec to create results/scores.csv with rows Alice=91, Bob=84, Chen=95. Then read it and identify the highest score.",
+        "skill": "exec",
+        "explain": "Command-generated file plus analysis."
+    },
+    {
+        "instruction": "Use exec to run a short Python snippet that sorts the list [5, 1, 9, 2]. Return the sorted list.",
+        "skill": "exec",
+        "explain": "Python list operation through shell execution."
+    },
+    {
+        "instruction": "Use exec to count how many lines are in a file you create named count_me.txt with exactly four lines.",
+        "skill": "exec",
+        "explain": "Shell line counting."
+    },
+    {
+        "instruction": "Use exec to generate a JSON string with keys ok=true and value=42, then validate it with Python and return the parsed object.",
+        "skill": "exec",
+        "explain": "Exec-based JSON validation."
+    },
+    {
+        "instruction": "Use exec to list the current directory before creating any new files. Summarize what files or folders are present.",
+        "skill": "exec",
+        "explain": "Read-only command execution."
+    },
+    {
+        "instruction": "Use exec to create a small Python script script.py that prints hello-eval. Run it and report the output.",
+        "skill": "exec",
+        "explain": "Script creation and execution."
+    },
+    {
+        "instruction": "Use exec to compute the first five Fibonacci numbers with Python. Return them as comma-separated values.",
+        "skill": "exec",
+        "explain": "Small generated computation."
+    },
+    {
+        "instruction": "Use exec to check the Python version available in the environment. Return the version line.",
+        "skill": "exec",
+        "explain": "Environment introspection."
+    },
+    {
+        "instruction": "Use exec to create out/math.txt containing the result of 2**10. Then read the file and report the value.",
+        "skill": "exec",
+        "explain": "Command output redirected to file."
+    },
+    {
+        "instruction": "Create data/items.json with an array of three objects, each having name and score. Read it and report the highest score.",
+        "skill": "json",
+        "explain": "JSON array creation and analysis."
+    },
+    {
+        "instruction": "Create data/config.json with nested fields model.name=Qwen3-8B and model.provider=vllm. Validate and summarize it.",
+        "skill": "json",
+        "explain": "Nested JSON validation."
+    },
+    {
+        "instruction": "Create data/invalid_example.txt containing an intentionally invalid JSON snippet. Explain why it is invalid without fixing it.",
+        "skill": "json",
+        "explain": "Invalid structured data diagnosis."
+    },
+    {
+        "instruction": "Create results/metrics.csv with columns metric,value and three rows. Read it and answer as a markdown table.",
+        "skill": "csv",
+        "explain": "CSV creation and table transformation."
+    },
+    {
+        "instruction": "Create data/people.csv with name,city rows for three people. Then identify all unique cities.",
+        "skill": "csv",
+        "explain": "CSV parsing and set extraction."
+    },
+    {
+        "instruction": "Create report/summary.md with headings Overview, Findings, and Next Steps. Then read it and list the headings.",
+        "skill": "markdown",
+        "explain": "Markdown structure generation."
+    },
+    {
+        "instruction": "Create docs/links.md with two markdown links to python.org and openai.com. Read it and extract the URLs.",
+        "skill": "markdown",
+        "explain": "Markdown link extraction."
+    },
+    {
+        "instruction": "Create a JSONL file logs/events.jsonl with three events. Then read it and count the events.",
+        "skill": "jsonl",
+        "explain": "JSONL write and line-wise parsing."
+    },
+    {
+        "instruction": "Create data/matrix.csv with a 2x3 numeric matrix. Read it and compute the sum of all numbers.",
+        "skill": "csv",
+        "explain": "CSV numeric aggregation."
+    },
+    {
+        "instruction": "Create docs/eval_notes.md with a title and three bullet points. Then summarize the bullets in one sentence.",
+        "skill": "markdown",
+        "explain": "Markdown bullet summarization."
+    },
+    {
+        "instruction": "Use memory-related capabilities to inspect whether there is any existing user memory. Do not write new memory; summarize what you can determine.",
+        "skill": "memory",
+        "explain": "Read-only memory inspection."
+    },
+    {
+        "instruction": "Explain how persistent memory could bias an agent evaluation, and mention whether you used any memory tool.",
+        "skill": "memory",
+        "explain": "Memory risk reasoning."
+    },
+    {
+        "instruction": "Check available memory or profile files in the workspace context if possible. Do not modify them.",
+        "skill": "memory",
+        "explain": "Memory file discovery without mutation."
+    },
+    {
+        "instruction": "Summarize the difference between session history and long-term memory for this evaluation setup in two sentences.",
+        "skill": "memory",
+        "explain": "Conceptual memory distinction."
+    },
+    {
+        "instruction": "Inspect whether this isolated testcase starts with any prior conversation history. Answer yes or no with a brief reason.",
+        "skill": "memory",
+        "explain": "Session isolation check."
+    },
+    {
+        "instruction": "State two rules you would follow before writing new long-term memory during an automated benchmark. Do not write memory.",
+        "skill": "memory",
+        "explain": "Memory safety policy reasoning."
+    },
+    {
+        "instruction": "If memory files are visible, list their names only. If not visible, say that none are visible. Do not create files.",
+        "skill": "memory",
+        "explain": "Read-only memory file listing."
+    },
+    {
+        "instruction": "Explain why each testcase should use a unique session key when evaluating memory-sensitive agents.",
+        "skill": "memory",
+        "explain": "Memory isolation rationale."
+    },
+    {
+        "instruction": "Use self-inspection capabilities to report your current model name, provider if available, and workspace path.",
+        "skill": "my",
+        "explain": "Runtime self-inspection."
+    },
+    {
+        "instruction": "Inspect your current max tool iteration setting if available, then explain how it constrains evaluation.",
+        "skill": "my",
+        "explain": "Runtime limit introspection."
+    },
+    {
+        "instruction": "Inspect available tools or skills and list five capabilities relevant to agent evaluation. Do not modify files.",
+        "skill": "my",
+        "explain": "Tool inventory inspection."
+    },
+    {
+        "instruction": "Check your workspace path and confirm whether it appears testcase-specific.",
+        "skill": "my",
+        "explain": "Workspace isolation self-check."
+    },
+    {
+        "instruction": "Inspect current provider or model settings if possible. Do not change them.",
+        "skill": "my",
+        "explain": "Read-only provider introspection."
+    },
+    {
+        "instruction": "Inspect whether web access and exec access appear enabled. Answer with a short capability matrix.",
+        "skill": "my",
+        "explain": "Runtime capability matrix."
+    },
+    {
+        "instruction": "Explain what information the self-inspection tool can reveal that is useful for debugging evaluation failures.",
+        "skill": "my",
+        "explain": "Meta-tool usefulness explanation."
+    },
+    {
+        "instruction": "Check your current session identifier if available and explain why it should be unique for this case.",
+        "skill": "my",
+        "explain": "Session metadata inspection."
+    },
+    {
+        "instruction": "Create long_notes.md with six short bullet points about agent evaluation, then summarize it into two bullets.",
+        "skill": "summarize",
+        "explain": "Summarization of generated content."
+    },
+    {
+        "instruction": "Write notes/source.md with three paragraphs about vLLM, API providers, and trace files. Summarize the file in one paragraph.",
+        "skill": "summarize",
+        "explain": "File-based summarization."
+    },
+    {
+        "instruction": "Summarize the following concept in two sentences: concurrent agent evaluation requires isolated state, bounded turns, and complete trajectory logging.",
+        "skill": "summarize",
+        "explain": "Direct concept summarization."
+    },
+    {
+        "instruction": "Create a verbose markdown file about weather evaluation with at least five bullet points. Then produce a concise executive summary.",
+        "skill": "summarize",
+        "explain": "Compression of verbose generated text."
+    },
+    {
+        "instruction": "Read any report.md file in the workspace if it exists and summarize it. If it does not exist, create a short source file first and summarize that.",
+        "skill": "summarize",
+        "explain": "Conditional summarization workflow."
+    },
+    {
+        "instruction": "Summarize the pros and cons of using API models versus local vLLM in exactly four bullets.",
+        "skill": "summarize",
+        "explain": "Structured comparative summary."
+    },
+    {
+        "instruction": "Create transcript.txt with a short three-turn dialogue about evaluation. Summarize the dialogue and identify the main decision.",
+        "skill": "summarize",
+        "explain": "Dialogue summarization."
+    },
+    {
+        "instruction": "Summarize why saving full OpenAI-style messages is useful for debugging agent behavior.",
+        "skill": "summarize",
+        "explain": "Explanation summarization."
+    },
+    {
+        "instruction": "Draft a minimal SKILL.md for a hypothetical skill named csv-auditor. Include name, description, and three usage rules.",
+        "skill": "skill-creator",
+        "explain": "Skill authoring structure."
+    },
+    {
+        "instruction": "Create a folder skill_drafts/json-checker with a SKILL.md that teaches an agent to validate JSON files. Keep it concise.",
+        "skill": "skill-creator",
+        "explain": "Workspace skill draft generation."
+    },
+    {
+        "instruction": "Explain the parts of a good NanoBot skill: metadata, when to use it, procedure, and examples. Do not create files.",
+        "skill": "skill-creator",
+        "explain": "Skill design explanation."
+    },
+    {
+        "instruction": "Draft a SKILL.md for weather-report-reviewer that checks if a weather answer includes city, condition, and source.",
+        "skill": "skill-creator",
+        "explain": "Evaluation-oriented skill draft."
+    },
+    {
+        "instruction": "Create skill_drafts/trace-inspector/SKILL.md that instructs an agent how to inspect OpenAI-style trajectory JSON.",
+        "skill": "skill-creator",
+        "explain": "Skill creation for trace inspection."
+    },
+    {
+        "instruction": "Review a hypothetical skill idea named benchmark-runner and list five requirements before implementing it.",
+        "skill": "skill-creator",
+        "explain": "Skill requirements analysis."
+    },
+    {
+        "instruction": "Create a compact checklist for validating a newly written SKILL.md. Do not modify existing skills.",
+        "skill": "skill-creator",
+        "explain": "Skill validation checklist."
+    },
+    {
+        "instruction": "Draft a SKILL.md for safe-shell-runner that emphasizes read-only commands, timeouts, and workspace isolation.",
+        "skill": "skill-creator",
+        "explain": "Safe tool-use skill drafting."
+    },
+    {
+        "instruction": "Inspect cron capability if available and explain how a one-shot evaluation reminder would be scheduled. Do not actually schedule anything.",
+        "skill": "cron",
+        "explain": "Cron skill conceptual use without side effects."
+    },
+    {
+        "instruction": "Explain the difference between a cron recurring job and a one-shot scheduled task in NanoBot. Do not create jobs.",
+        "skill": "cron",
+        "explain": "Cron concept explanation."
+    },
+    {
+        "instruction": "List three safety checks before allowing an automated evaluation to create scheduled cron jobs.",
+        "skill": "cron",
+        "explain": "Cron safety reasoning."
+    },
+    {
+        "instruction": "Inspect existing scheduled jobs if possible and report them. Do not add, remove, or modify jobs.",
+        "skill": "cron",
+        "explain": "Read-only cron inspection."
+    },
+    {
+        "instruction": "Design a hypothetical daily evaluation summary schedule in natural language, but do not call any scheduling tool.",
+        "skill": "cron",
+        "explain": "Schedule design without execution."
+    },
+    {
+        "instruction": "Explain why benchmark testcases should usually avoid persistent scheduled jobs.",
+        "skill": "cron",
+        "explain": "Cron persistence risk explanation."
+    },
+    {
+        "instruction": "Explain when tmux is useful for long-running agent tasks, but do not start a tmux session.",
+        "skill": "tmux",
+        "explain": "tmux conceptual usage."
+    },
+    {
+        "instruction": "Inspect whether tmux appears available if possible. Do not create or attach to any session.",
+        "skill": "tmux",
+        "explain": "Read-only tmux availability check."
+    },
+    {
+        "instruction": "List three reasons an evaluation pipeline should prefer non-interactive exec over tmux for short commands.",
+        "skill": "tmux",
+        "explain": "Tool choice reasoning."
+    },
+    {
+        "instruction": "Describe a safe tmux naming convention for isolated testcase sessions. Do not start any sessions.",
+        "skill": "tmux",
+        "explain": "tmux isolation design."
+    },
+    {
+        "instruction": "Explain how to clean up tmux sessions after a benchmark run without executing cleanup.",
+        "skill": "tmux",
+        "explain": "Cleanup procedure explanation."
+    },
+    {
+        "instruction": "Create tmux_notes.md containing a short policy for when tmux is allowed in evaluation. Then summarize it.",
+        "skill": "tmux",
+        "explain": "tmux policy file generation."
+    },
+    {
+        "instruction": "Inspect whether GitHub-related skills are available and explain what credentials would be needed for real repository operations. Do not contact GitHub.",
+        "skill": "github",
+        "explain": "GitHub skill availability and credential reasoning."
+    },
+    {
+        "instruction": "Draft a GitHub issue body for a bug in an evaluation pipeline where traces are missing tool results. Do not create the issue.",
+        "skill": "github",
+        "explain": "GitHub artifact drafting without remote mutation."
+    },
+    {
+        "instruction": "Draft a pull request summary for adding isolated workspaces to an agent evaluation pipeline. Do not create a PR.",
+        "skill": "github",
+        "explain": "PR summary generation."
+    },
+    {
+        "instruction": "Explain the difference between reading a GitHub issue and modifying a GitHub issue in terms of benchmark safety.",
+        "skill": "github",
+        "explain": "GitHub side-effect reasoning."
+    },
+    {
+        "instruction": "Create github_review_notes.md with a checklist for reviewing an evaluation-pipeline PR. Then read it back.",
+        "skill": "github",
+        "explain": "GitHub review checklist generation."
+    },
+    {
+        "instruction": "List five pieces of repository context an agent should collect before changing code in a GitHub-hosted project.",
+        "skill": "github",
+        "explain": "Repository context planning."
+    },
+    {
+        "instruction": "Explain what ClawHub appears to be used for in NanoBot and how it might relate to discovering skills. Do not install anything.",
+        "skill": "clawhub",
+        "explain": "ClawHub concept explanation."
+    },
+    {
+        "instruction": "Inspect available ClawHub or skill discovery capability if possible. Report only what is visible; do not install or modify skills.",
+        "skill": "clawhub",
+        "explain": "Read-only skill discovery."
+    },
+    {
+        "instruction": "Draft a safe policy for using external skill marketplaces during benchmark evaluation. Mention reproducibility and version pinning.",
+        "skill": "clawhub",
+        "explain": "Marketplace safety policy."
+    },
+    {
+        "instruction": "Create clawhub_notes.md with three questions to ask before installing a third-party skill. Then summarize the questions.",
+        "skill": "clawhub",
+        "explain": "ClawHub-related documentation generation."
+    },
+    {
+        "instruction": "Inspect the current NanoBot version if possible and explain how update-setup would help prepare future upgrades. Do not upgrade anything.",
+        "skill": "update-setup",
+        "explain": "Read-only update setup reasoning."
+    },
+    {
+        "instruction": "Write update_policy.md with a safe update policy for this evaluation environment. Include preflight, backup, and verification steps.",
+        "skill": "update-setup",
+        "explain": "Update policy document generation."
+    },
+    {
+        "instruction": "Without using external tools, explain why isolated workspaces are important for parallel agent evaluation in two sentences.",
+        "skill": "reasoning",
+        "explain": "No-tool conceptual baseline."
+    },
+    {
+        "instruction": "Explain the tradeoff between high concurrency and stable API rate limits in three concise bullets.",
+        "skill": "reasoning",
+        "explain": "Concurrency reasoning baseline."
+    },
+    {
+        "instruction": "Given max_turns=20 and 128 testcases, explain what failure modes the summary.json should help detect.",
+        "skill": "reasoning",
+        "explain": "Evaluation result reasoning."
+    },
+    {
+        "instruction": "Explain why saving full trajectories is better than saving only final answers for debugging agent tools.",
+        "skill": "reasoning",
+        "explain": "Trace logging rationale."
+    },
+    {
+        "instruction": "Compare API-key model access and local vLLM deployment in four short bullets.",
+        "skill": "reasoning",
+        "explain": "Provider mode comparison."
+    },
+    {
+        "instruction": "Explain why deterministic file and exec tasks are useful complements to live web and weather tasks.",
+        "skill": "reasoning",
+        "explain": "Dataset design rationale."
+    },
+    {
+        "instruction": "List five fields that are useful in an evaluation summary and explain each in a short phrase.",
+        "skill": "reasoning",
+        "explain": "Summary schema reasoning."
+    },
+    {
+        "instruction": "Explain how a strong local model can still fail an agent benchmark if tool-call parsing is misconfigured.",
+        "skill": "reasoning",
+        "explain": "vLLM tool parser reasoning."
+    }
+]

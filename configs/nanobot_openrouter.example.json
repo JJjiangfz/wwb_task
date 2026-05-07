@@ -1,0 +1,18 @@
+{
+    "providers": {
+        "openrouter": {
+            "apiKey": "${OPENROUTER_API_KEY}"
+        }
+    },
+    "agents": {
+        "defaults": {
+            "provider": "openrouter",
+            "model": "openrouter/free",
+            "maxToolIterations": 20,
+            "timezone": "Asia/Shanghai"
+        }
+    },
+    "tools": {
+        "restrictToWorkspace": true
+    }
+}

@@ -1,0 +1,17 @@
+[
+    {
+        "instruction": "Use the weather skill to tell me the current weather in Tokyo and summarize it briefly.",
+        "skill": "weather",
+        "explain": "Basic smoke test for invoking a built-in skill."
+    },
+    {
+        "instruction": "Use the weather skill to compare the current weather in Beijing and Shanghai. Keep the answer concise.",
+        "skill": "weather",
+        "explain": "Checks whether independent sessions can run similar skill requests concurrently."
+    },
+    {
+        "instruction": "Use the weather skill to report the current weather in New York, then state which tool or skill you used.",
+        "skill": "weather",
+        "explain": "Checks whether the agent can expose skill usage in the final answer."
+    }
+]

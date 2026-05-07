@@ -1,0 +1,77 @@
+[
+    {
+        "instruction": "Use the weather skill to tell me the current weather in Tokyo and summarize it in one sentence.",
+        "skill": "weather",
+        "explain": "Basic weather skill invocation for a single city."
+    },
+    {
+        "instruction": "Use the weather skill to compare the current weather in Beijing and Shanghai. Keep the answer concise and mention both cities.",
+        "skill": "weather",
+        "explain": "Checks multiple tool calls in one user request and verifies that the final answer compares two locations."
+    },
+    {
+        "instruction": "Use the weather skill to report the current weather in New York, then explicitly state which tool or skill you used.",
+        "skill": "weather",
+        "explain": "Checks whether the agent can expose tool or skill usage in the final answer."
+    },
+    {
+        "instruction": "Search the web for the current homepage title of python.org, fetch the page if needed, and answer with the title plus the source URL.",
+        "skill": "web",
+        "explain": "Checks web_search and web_fetch usage with source attribution."
+    },
+    {
+        "instruction": "Search the web for today's OpenAI official homepage headline or main product message. Use only official OpenAI pages and give the source URL.",
+        "skill": "web",
+        "explain": "Checks constrained web search on a specific domain and source-aware summarization."
+    },
+    {
+        "instruction": "Create a file named notes/cities.md in the workspace containing a three-row markdown table for Tokyo, Beijing, and New York. Then read it back and summarize what you wrote.",
+        "skill": "filesystem",
+        "explain": "Checks write_file, read_file, nested path creation, and workspace isolation."
+    },
+    {
+        "instruction": "Create two files in the workspace: data/a.txt with the text alpha beta gamma, and data/b.txt with the text beta delta. Then search the workspace for the word beta and report which files contain it.",
+        "skill": "filesystem_search",
+        "explain": "Checks write_file plus workspace search tools such as grep or glob."
+    },
+    {
+        "instruction": "Use Python through the exec tool to compute the SHA256 hash of the exact string nanobot-eval-pipeline. Return only the hash and mention that exec was used.",
+        "skill": "exec",
+        "explain": "Checks shell or Python execution in the isolated workspace."
+    },
+    {
+        "instruction": "Use the exec tool to create a CSV file named results/scores.csv with columns name,score and rows Alice=91, Bob=84, Chen=95. Then read the file and identify the highest score.",
+        "skill": "exec_filesystem",
+        "explain": "Checks interaction between command execution, generated files, and file reading."
+    },
+    {
+        "instruction": "Write a short JSON file named artifacts/profile.json with fields project, status, and cases. Use project=nanobot-eval, status=ready, cases=3. Then read it back and validate that it is valid JSON.",
+        "skill": "json_filesystem",
+        "explain": "Checks structured file creation, readback, and JSON validation behavior."
+    },
+    {
+        "instruction": "Create a markdown report named report.md that lists three risks for evaluating agent trajectories. Then provide a final answer with the file path and a one-sentence summary.",
+        "skill": "report_generation",
+        "explain": "Checks multi-step writing and final response grounding in workspace artifacts."
+    },
+    {
+        "instruction": "Inspect your available skills or tools, then answer with a compact bullet list of the capabilities you would use for this evaluation task. Do not modify files.",
+        "skill": "self_inspection",
+        "explain": "Checks whether the agent can inspect runtime capabilities without unnecessary workspace writes."
+    },
+    {
+        "instruction": "Use available tools to find the current date or system time, then answer with the date and the tool you used.",
+        "skill": "exec",
+        "explain": "Checks simple deterministic command execution and final tool-use disclosure."
+    },
+    {
+        "instruction": "Read the workspace if needed and determine whether a file named report.md exists. If it does not exist, say so clearly without creating it.",
+        "skill": "filesystem",
+        "explain": "Checks read-only workspace inspection and negative-result reporting."
+    },
+    {
+        "instruction": "Without using the web, explain in two sentences why isolated workspaces are important for parallel agent evaluation.",
+        "skill": "reasoning",
+        "explain": "Checks a no-external-tool baseline response for conceptual understanding."
+    }
+]

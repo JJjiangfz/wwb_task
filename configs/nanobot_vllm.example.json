@@ -1,0 +1,28 @@
+{
+    "providers": {
+        "vllm": {
+            "apiKey": null,
+            "apiBase": "http://localhost:8000/v1"
+        }
+    },
+    "agents": {
+        "defaults": {
+            "provider": "vllm",
+            "model": "Qwen/Qwen3-8B",
+            "maxTokens": 1024,
+            "contextWindowTokens": 8192,
+            "maxToolIterations": 20,
+            "timezone": "Asia/Shanghai"
+        }
+    },
+    "tools": {
+        "restrictToWorkspace": true,
+        "web": {
+            "enable": true
+        },
+        "exec": {
+            "enable": true,
+            "timeout": 60
+        }
+    }
+}

@@ -1,0 +1,12 @@
+[
+    {
+        "instruction": "You are a helpful assistant. Please tell me the correct answer of 1+1?",
+        "skill": "compute",
+        "explain": "may be it will be 2 or any other number"
+    },
+    {
+        "instruction": "You are a helpful assistant. Please tell me the correct answer of 1+1?",
+        "skill": "compute",
+        "explain": "may be it will be 2 or any other number"
+    }
+]
