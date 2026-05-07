@@ -1,11 +1,10 @@
 # NanoBot Evaluation Pipeline
 
-Python pipeline for running many NanoBot agent evaluation cases concurrently while keeping each case in an isolated workspace and session.
+这是一个 Python 评测流水线，用于并发运行多条 NanoBot 智能体评测用例，并为每条用例保持独立的工作目录和会话。
 
-## Setup
+## 环境配置
 
-This workspace uses a local Python 3.10-compatible NanoBot checkout under
-`third_party/nanobot`.
+本工作区使用位于 `third_party/nanobot` 的本地 NanoBot 源码版本，该版本兼容 Python 3.10。
 
 ```bash
 conda activate nanobot
@@ -13,11 +12,11 @@ pip install -e third_party/nanobot
 pip install -e ".[dev]"
 ```
 
-The NanoBot source is kept under `third_party/nanobot` so the SDK, config schema, hooks, and built-in skills can be inspected locally. The evaluation pipeline still calls NanoBot through its public Python SDK.
+NanoBot 源码保存在 `third_party/nanobot` 下，便于在本地查看 SDK、配置 schema、hooks 和内置 skills。评测流水线仍然通过 NanoBot 公开的 Python SDK 调用 NanoBot。
 
-## vLLM Example
+## vLLM 示例
 
-Start a local OpenAI-compatible vLLM server:
+启动一个兼容 OpenAI API 的本地 vLLM 服务：
 
 ```bash
 CUDA_VISIBLE_DEVICES=6 \
@@ -38,7 +37,7 @@ vllm serve models/Qwen3-8B \
   --reasoning-parser qwen3
 ```
 
-Run the sample dataset:
+运行示例数据集：
 
 ```bash
 python -m eval_pipeline run \
@@ -49,29 +48,26 @@ python -m eval_pipeline run \
   --max-turns 20
 ```
 
-On this machine, the command above avoids the system CUDA 11.5 `nvcc`
-FlashInfer JIT path while using Torch CUDA 12.8 wheels. Increase concurrency
-only after confirming available GPU memory and vLLM throughput.
+在这台机器上，上面的命令会避开系统 CUDA 11.5 `nvcc` 的 FlashInfer JIT 路径，同时使用 Torch CUDA 12.8 wheels。只有在确认 GPU 显存余量和 vLLM 吞吐能力之后，再提高并发数。
 
-Use `--dry-run` to validate the dataset and print the planned isolated workspaces without calling NanoBot.
+可以使用 `--dry-run` 验证数据集，并打印计划创建的独立工作目录，而不会实际调用 NanoBot。
 
-## OpenRouter Example
+## OpenRouter 示例
 
-The OpenRouter config uses the free model route by default:
+OpenRouter 配置默认使用免费模型路由：
 
 ```json
 "model": "openrouter/free"
 ```
 
-OpenRouter still requires an API key for authentication. To avoid exporting it
-in every shell, create a local `.env` file:
+OpenRouter 仍然需要 API key 进行身份认证。为了避免在每个 shell 中重复 export，可以创建本地 `.env` 文件：
 
 ```bash
 cp .env.example .env
 # then edit .env and set OPENROUTER_API_KEY
 ```
 
-Run the API-backed evaluation:
+运行由 API 支持的评测：
 
 ```bash
 python -m eval_pipeline run \
@@ -83,19 +79,19 @@ python -m eval_pipeline run \
   --timeout-seconds 300
 ```
 
-## Outputs
+## 输出
 
-Each case gets:
+每条用例会生成：
 
 - `outputs/<run>/workspaces/<case_id>_workspace/`
 - `outputs/<run>/traces/<case_id>.json`
-- one row in `outputs/<run>/summary.json`
+- `outputs/<run>/summary.json` 中的一行记录
 
-Trace files are saved as OpenAI-style message arrays with `indent=4`. If NanoBot returns no SDK messages, the pipeline saves a minimal fallback trace and marks the result with a warning in `summary.json`.
+trace 文件会以 OpenAI 风格的消息数组形式保存，并使用 `indent=4`。如果 NanoBot 没有返回 SDK messages，流水线会保存一个最小 fallback trace，并在 `summary.json` 中用 warning 标记该结果。
 
-## Dataset Format
+## 数据集格式
 
-Input JSON is a list of cases:
+输入 JSON 是一个用例列表：
 
 ```json
 [
@@ -107,4 +103,4 @@ Input JSON is a list of cases:
 ]
 ```
 
-The loader keeps the dataset schema isolated from execution code. Future field changes should be handled in `eval_pipeline/models.py` and `eval_pipeline/dataset.py`.
+加载器会让数据集 schema 和执行代码保持隔离。未来如果需要调整字段，应在 `eval_pipeline/models.py` 和 `eval_pipeline/dataset.py` 中处理。
