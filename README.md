@@ -12,7 +12,7 @@ pip install -e third_party/nanobot
 pip install -e ".[dev]"
 ```
 
-NanoBot 源码保存在 `third_party/nanobot` 下，便于在本地查看 SDK、配置 schema、hooks 和内置 skills。评测流水线仍然通过 NanoBot 公开的 Python SDK 调用 NanoBot。
+NanoBot 源码保存在 `third_party/nanobot` 下，便于在本地查看 SDK、配置 schema、hooks 和内置 skills。评测流水线通过 NanoBot 公开的 Python SDK 调用 NanoBot。
 
 ## vLLM 示例
 
@@ -44,13 +44,11 @@ python -m eval_pipeline run \
   --dataset data/sample_cases.json \
   --config configs/nanobot_vllm.example.json \
   --output-dir outputs/run_qwen3 \
-  --concurrency 1 \
+  --concurrency 20 \
   --max-turns 20
 ```
 
-在这台机器上，上面的命令会避开系统 CUDA 11.5 `nvcc` 的 FlashInfer JIT 路径，同时使用 Torch CUDA 12.8 wheels。只有在确认 GPU 显存余量和 vLLM 吞吐能力之后，再提高并发数。
-
-可以使用 `--dry-run` 验证数据集，并打印计划创建的独立工作目录，而不会实际调用 NanoBot。
+在这台机器上，上面的命令会避开系统 CUDA 11.5 `nvcc` 的 FlashInfer JIT 路径，同时使用 Torch CUDA 12.8 wheels。确认 GPU 显存余量和 vLLM 吞吐能力之后，可以提高并发数。
 
 ## OpenRouter 示例
 
@@ -60,7 +58,7 @@ OpenRouter 配置默认使用免费模型路由：
 "model": "openrouter/free"
 ```
 
-OpenRouter 仍然需要 API key 进行身份认证。为了避免在每个 shell 中重复 export，可以创建本地 `.env` 文件：
+OpenRouter 仍然需要 API key 进行身份认证。为了避免在每个 shell 中重复 export，可创建本地 `.env` 文件：
 
 ```bash
 cp .env.example .env
@@ -87,7 +85,7 @@ python -m eval_pipeline run \
 - `outputs/<run>/traces/<case_id>.json`
 - `outputs/<run>/summary.json` 中的一行记录
 
-trace 文件会以 OpenAI 风格的消息数组形式保存，并使用 `indent=4`。如果 NanoBot 没有返回 SDK messages，流水线会保存一个最小 fallback trace，并在 `summary.json` 中用 warning 标记该结果。
+trace 文件会以 OpenAI 风格的消息数组形式保存，并使用 `indent=4`。
 
 ## 数据集格式
 
