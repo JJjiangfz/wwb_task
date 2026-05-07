@@ -7,6 +7,7 @@ dist/
 build/
 .env
 outputs/
+implementation_log.md
 
 # Local model weights
 models/
